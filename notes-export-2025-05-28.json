@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "1",
+    "title": "Welcome to NotesApp!",
+    "content": "This is your modern note-taking app. You can create, edit, and organize your notes with categories and tags.",
+    "category": "Personal",
+    "tags": [
+      "welcome",
+      "demo"
+    ],
+    "createdAt": "2025-05-28T15:50:51.346Z",
+    "updatedAt": "2025-05-28T15:52:14.752Z"
+  },
+  {
+    "_id": "2",
+    "title": "Features Overview",
+    "content": "• Auto-save functionality\n• Search and filter notes\n• Categories and tags\n• Export functionality\n• Mobile responsive design",
+    "category": "Ideas",
+    "tags": [
+      "features",
+      "overview"
+    ],
+    "createdAt": "2025-05-27T15:50:51.346Z",
+    "updatedAt": "2025-05-28T15:51:59.572Z"
+  }
+]

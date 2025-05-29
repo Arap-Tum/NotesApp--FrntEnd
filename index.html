@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotesApp - Modern Note Taking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <div class="container">
+        <div class="header">
+            <h1>📝 NotesApp</h1>
+            <p>Your modern note-taking companion</p>
+        </div>
+
+        <div class="controls">
+            <div class="controls-row">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search notes...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <select id="categoryFilter" class="category-select">
+                    <option value="">All Categories</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Ideas">Ideas</option>
+                    <option value="Todo">Todo</option>
+                </select>
+                <select id="sortFilter" class="filter-select">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="title">Title A-Z</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+            <div class="controls-row">
+                <button class="btn btn-primary" onclick="openCreateModal()">
+                    ➕ New Note
+                </button>
+                <button class="btn btn-secondary" onclick="exportNotes()">
+                    📤 Export Notes
+                </button>
+                <button class="btn btn-secondary" onclick="toggleAutoSave()">
+                    <span id="autoSaveText">🔄 Auto-Save: ON</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="notesGrid" class="notes-grid">
+            <!-- Notes will be dynamically inserted here -->
+        </div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <h3>No notes found</h3>
+            <p>Create your first note to get started!</p>
+        </div>
+    </div>
+
+    <!-- Create/Edit Note Modal -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Create New Note</h3>
+            <form id="noteForm">
+                <div class="form-group">
+                    <label for="noteTitle">Title</label>
+                    <input type="text" id="noteTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="noteCategory">Category</label>
+                    <select id="noteCategory">
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="Ideas">Ideas</option>
+                        <option value="Todo">Todo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="noteTags">Tags (comma-separated)</label>
+                    <input type="text" id="noteTags" placeholder="tag1, tag2, tag3">
+                </div>
+                <div class="form-group">
+                    <label for="noteContent">Content</label>
+                    <textarea id="noteContent" rows="6" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Note</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Delete Note</h3>
+            <p>Are you sure you want to delete this note? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auto-save indicator -->
+    <div id="autoSaveIndicator" class="auto-save-indicator">
+        ✅ Auto-saved
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
